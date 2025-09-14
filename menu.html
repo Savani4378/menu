@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bapu no Rotlo - Menu</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+    .buttons button {
+      padding: 8px 16px;
+      border: 1px solid #333;
+      background: white;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+    .buttons button.active {
+      background: #333;
+      color: white;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    @media(min-width: 768px) {
+      .grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .card h2 {
+      margin-top: 0;
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+    .card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .card li {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid #eee;
+      padding: 6px 0;
+      font-size: 1.1rem;
+    }
+    .card li:last-child {
+      border-bottom: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🍽️ Bapu no Rotlo - Menu</h1>
+
+    <div class="buttons" id="categoryButtons"></div>
+    <div class="grid" id="menuGrid"></div>
+  </div>
+
+  <script>
+    const menu = [
+      {
+        category: "Rotlo Special",
+        items: [
+          { name: "Bajra Rotlo", price: "₹40" },
+          { name: "Jowar Rotlo", price: "₹40" },
+          { name: "Rotlo with Ghee & Gud", price: "₹60" },
+        ],
+      },
+      {
+        category: "Kathiyawadi Sabji",
+        items: [
+          { name: "Sev Tameta", price: "₹120" },
+          { name: "Ringan Bateta", price: "₹120" },
+          { name: "Lasaniya Bataka", price: "₹100" },
+        ],
+      },
+      {
+        category: "Combo Meals",
+        items: [
+          { name: "Rotlo + Sabji + Chaas", price: "₹160" },
+          { name: "Mini Thali", price: "₹200" },
+          { name: "Full Thali", price: "₹300" },
+        ],
+      },
+      {
+        category: "Beverages",
+        items: [
+          { name: "Chaas", price: "₹30" },
+          { name: "Masala Chaas", price: "₹40" },
+          { name: "Butter Milk Jug", price: "₹90" },
+        ],
+      },
+    ];
+
+    const categories = ["All", ...menu.map(c => c.category)];
+    const buttonsContainer = document.getElementById("categoryButtons");
+    const menuGrid = document.getElementById("menuGrid");
+    let selectedCategory = "All";
+
+    function renderButtons() {
+      buttonsContainer.innerHTML = "";
+      categories.forEach(cat => {
+        const btn = document.createElement("button");
+        btn.textContent = cat;
+        if (cat === selectedCategory) btn.classList.add("active");
+        btn.onclick = () => {
+          selectedCategory = cat;
+          renderButtons();
+          renderMenu();
+        };
+        buttonsContainer.appendChild(btn);
+      });
+    }
+
+    function renderMenu() {
+      menuGrid.innerHTML = "";
+      menu
+        .filter(cat => selectedCategory === "All" || cat.category === selectedCategory)
+        .forEach(cat => {
+          const card = document.createElement("div");
+          card.className = "card";
+          const title = document.createElement("h2");
+          title.textContent = cat.category;
+          card.appendChild(title);
+
+          const list = document.createElement("ul");
+          cat.items.forEach(item => {
+            const li = document.createElement("li");
+            li.innerHTML = `<span>${item.name}</span><span><strong>${item.price}</strong></span>`;
+            list.appendChild(li);
+          });
+          card.appendChild(list);
+
+          menuGrid.appendChild(card);
+        });
+    }
+
+    renderButtons();
+    renderMenu();
+  </script>
+</body>
+</html>
