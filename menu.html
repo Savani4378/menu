@@ -4,16 +4,76 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Bapu no Rotlo - Menu</title>
-  <link rel="stylesheet" href="menu.css" />
+  <!-- Link to external CSS -->
+  <link rel="stylesheet" href="menu.css">
 </head>
 <body>
-  <div class="container">
-    <h1>🍽️ Bapu no Rotlo - Menu</h1>
 
-    <div class="buttons" id="categoryButtons"></div>
-    <div class="grid" id="menuGrid"></div>
-  </div>
+  <!-- ================= HEADER ================= -->
+  <header>
+    <div class="header-row">
+      <!-- Left: Location -->
+      <a class="location-link" href="https://www.google.com/search?q=bapu+no+rotlo+location+in+ahmedabad&rlz=1C1CHBF_enIN1062IN1062&oq=bap&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGDsyBggCEEUYOTIGCAMQRRg8MgYIBBBFGEEyBggFEEUYQTIGCAYQRRg8MgYIBxBFGEHSAQgxMDgyajBqN6gCALACAA&sourceid=chrome&ie=UTF-8" target="_blank">
+        📍 Find Us
+      </a>
 
+      <!-- Center: Title -->
+      <h1>🍽️ Bapu no Rotlo - Menu</h1>
+      <!-- Right -->
+    <a class="whatsapp-link" 
+       href="https://wa.me/919374128747" 
+       target="_blank">
+      💬 WhatsApp
+    </a>
+    </div>
+  </header>
+
+  <!-- ================= OPTIONS BOX ================= -->
+  <section class="options-box">
+    <h2>Available Options</h2>
+    <div class="options-grid">
+      <!-- Dine In -->
+      <div class="option-card" onclick="showToast('Enjoy dining with us! 🍴')">
+        <div class="icon">🍴</div>
+        <p>Dine In</p>
+      </div>
+
+      <!-- Take Away -->
+      <div class="option-card" onclick="showToast('Order & collect 🥡')">
+        <div class="icon">🥡</div>
+        <p>Take Away</p>
+      </div>
+
+      <!-- Zomato -->
+      <a href="https://www.zomato.com/ahmedabad/bapu-no-rotlo-bopal" 
+         target="_blank" 
+         class="option-card">
+        <img src="/zomato.png" alt="Zomato" />
+        </a>
+
+      <!-- Swiggy -->
+      <a href="https://www.swiggy.com/city/ahmedabad/bapu-no-rotlo-arohi-crest-road-fun-zone-bopal-rest748697" 
+         target="_blank" 
+         class="option-card">
+        <img src="/swiggy.png" alt="Swiggy" />
+      </a>
+    </div>
+  </section>
+
+  <!-- ================= MENU SECTION ================= -->
+  <section class="menu-section">
+    <img src="/menu.jpg" alt="Bapu no Rotlo Menu" />
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    Note: We accept Party orders.
+  </footer>
+
+  <!-- ================= TOAST NOTIFICATION ================= -->
+  <div id="toast" class="toast"></div>
+
+  <!-- Link to external JS -->
   <script src="menu.js"></script>
 </body>
 </html>
