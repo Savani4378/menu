@@ -215,10 +215,12 @@
 
   .menu-section img {
     width: 100%;
+    height: auto;
     border: 4px solid #f15a24;
     border-radius: 15px;
     box-shadow: 0 6px 16px rgba(0,0,0,0.2);
     transition: transform 0.3s ease;
+    margin: 0 auto;
   }
   .menu-section img:hover {
     transform: scale(1.02);
