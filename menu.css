@@ -19,6 +19,12 @@
 
   /* ================= HEADER ================= */
   header {
+    display: flex;
+    flex-direction: column; /* Stack logo + language switch vertically */
+    align-items: center;    /* Center horizontally */
+    justify-content: center;
+    padding: 20px 0;
+    text-align: center;
     background: linear-gradient(135deg, #f15a24, #f98c5c);
     color: #fff;
     padding: 15px 0;
@@ -28,12 +34,58 @@
   }
 
   header h1 img {
+      margin-bottom: 12px;
       height: 70px;
       background: #fff;
       padding: 10px 20px;
       border-radius: 12px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.15);
     }
+
+/* ================= LANGUAGE SWITCHER ================= */
+.lang-switcher {
+  display: flex;
+  gap: 10px;
+  background: #fff;
+  padding: 6px 10px;
+  border-radius: 14px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  justify-content: center;
+}
+
+.lang-switcher label {
+  position: relative;
+  cursor: pointer;
+}
+
+.lang-switcher input[type="radio"] {
+  display: none; /* Hide default radio */
+}
+
+.lang-switcher span {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 10px;
+  border: 2px solid #e0e0e0;
+  background: #f9f9f9;
+  color: #333;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+/* Selected language */
+.lang-switcher input[type="radio"]:checked + span {
+  background: #ff7a00;
+  color: #fff;
+  border-color: #ff7a00;
+  box-shadow: 0 3px 8px rgba(255,122,0,0.3);
+}
+
+/* Hover effect */
+.lang-switcher span:hover {
+  border-color: #ff7a00;
+}
 
 .contact-row {
     margin: 30px auto;
@@ -44,7 +96,7 @@
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     text-align: center;
   }
-
+  
   /* Location Button */
   .location-link {
     padding: 8px 18px;
