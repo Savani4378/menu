@@ -89,7 +89,7 @@
 .contact-row {
     margin: 30px auto;
     padding: 20px;
-    max-width: 450px;
+    max-width: 550px;
     background: #fff8f5;
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -123,6 +123,26 @@
   .header-row h1 {
     text-align: center;
     justify-self: center;
+  }
+
+  /* WhatsApp Button */
+  .call-link {
+    display: inline-block;
+    padding: 8px 18px;
+    background: #fff;
+    color: #f15a24;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 20px;
+    border: 2px solid #f15a24;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    white-space: nowrap;
+  }
+  .call-link:hover {
+    background: #fff;
+    border-color: #f15a24;
   }
 
   /* WhatsApp Button */
@@ -244,6 +264,120 @@
   .menu-section img:hover {
     transform: scale(1.02);
   }
+
+  /* ===== ORDER MODAL OVERLAY ===== */
+#orderModal {
+  display: none; /* stays hidden until opened */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* ===== MODAL BOX ===== */
+#orderModal .modal-box {
+  background: #fff;
+  padding: 20px 25px;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 420px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  animation: scaleIn 0.25s ease;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Heading */
+#orderModal .modal-box h2 {
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+}
+
+/* ===== ORDER FORM ITEMS ===== */
+#orderForm label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fafafa;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #eee;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+#orderForm label:hover {
+  background: #f3f3f3;
+}
+
+#orderForm input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+#orderForm input[type="number"] {
+  width: 60px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* ===== BUTTONS ===== */
+#orderModal .modal-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+#orderModal button {
+  flex: 1;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+#orderModal button:hover {
+  transform: scale(1.03);
+}
+
+/* Cancel button */
+#orderModal button.cancel-btn {
+  background: #e0e0e0;
+  color: #333;
+}
+
+/* Send button */
+#orderModal button.send-btn {
+  background: #25D366;
+  color: #fff;
+}
+
+/* ===== ANIMATION ===== */
+@keyframes scaleIn {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 
   /* ================= FOOTER ================= */
   footer {

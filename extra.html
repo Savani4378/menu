@@ -1,0 +1,43 @@
+
+<!--set it in option box in take away-->
+<div class="option-card" onclick="openOrderModal()">
+      <div class="icon">🥡</div>
+      <p data-key="takeAway">Take Away</p>
+      </div>
+
+      <!--orderModal set under the menu section-->
+
+
+<div id="orderModal">
+  <div class="modal-box">
+    <h2>Select Items for Take Away</h2>
+
+    <form id="orderForm">
+      <label>
+        <span><input type="checkbox" name="menu" value="Rotlo & Sabji"> Rotlo & Sabji</span>
+        <input type="number" name="qty" min="1" value="1" disabled>
+      </label>
+      <label>
+        <span><input type="checkbox" name="menu" value="Gujarati Thali"> Gujarati Thali</span>
+        <input type="number" name="qty" min="1" value="1" disabled>
+      </label>
+      <label>
+        <span><input type="checkbox" name="menu" value="Sev Tameta"> Sev Tameta</span>
+        <input type="number" name="qty" min="1" value="1" disabled>
+      </label>
+      <label>
+        <span><input type="checkbox" name="menu" value="Khichdi Kadhi"> Khichdi Kadhi</span>
+        <input type="number" name="qty" min="1" value="1" disabled>
+      </label>
+      <label>
+        <span><input type="checkbox" name="menu" value="Chaas"> Chaas</span>
+        <input type="number" name="qty" min="1" value="1" disabled>
+      </label>
+    </form>
+
+    <div class="modal-actions">
+      <button class="cancel-btn" onclick="closeOrderModal()">Cancel</button>
+      <button class="send-btn" onclick="sendOrder()">Send on WhatsApp 📲</button>
+    </div>
+  </div>
+</div>

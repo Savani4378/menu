@@ -49,6 +49,16 @@
       <span data-key="location">Location</span>
     </a>
 
+    <!-- 📞 Call -->
+<a class="call-link" 
+   href="tel:+919374128747" 
+   style="display:flex; align-items:center; background:#fff; padding:6px 12px; border-radius:10px; box-shadow:0 2px 6px rgba(0,0,0,0.1); text-decoration:none; color:#000; font-weight:500;">
+  <img src="https://i.pinimg.com/736x/8e/a0/83/8ea08365d331d8ae9bd93ba5f50528d4.jpg" 
+       alt="Call Logo" 
+       style="width:22px; height:22px; margin-right:6px;">
+  <span data-key="call">Call</span>
+</a>
+
     <!-- WhatsApp -->
     <a class="whatsapp-link" 
        href="https://wa.me/919374128747" 
@@ -88,6 +98,7 @@
         <p data-key="takeAway">Take Away</p>
       </div>
 
+
       <!-- Zomato -->
       <a href="https://www.zomato.com/ahmedabad/bapu-no-rotlo-bopal" target="_blank" class="option-card">
         <img src="https://cdn.worldvectorlogo.com/logos/zomato-1.svg" alt="Zomato" />
@@ -105,6 +116,8 @@
     <img src="https://github.com/Savani4378/menu/blob/main/images/menu.jpg?raw=true" alt="Bapu no Rotlo Menu" />
   </section>
 
+
+
   <!-- ================= FOOTER ================= -->
   <footer>
     <span data-key="footerNote">Note: We accept Party orders.</span>
@@ -114,8 +127,66 @@
   <div id="toast" class="toast"></div>
 
   <!-- ================= JS SCRIPT ================= -->
-  <script>
-    // Language dictionary
+
+<script>
+// Open modal
+function openOrderModal() {
+  document.getElementById("orderModal").style.display = "flex";
+}
+
+// Close modal
+function closeOrderModal() {
+  document.getElementById("orderModal").style.display = "none";
+}
+
+// Close modal when clicking outside the box
+document.getElementById("orderModal").addEventListener("click", function(e) {
+  if (e.target.id === "orderModal") {
+    closeOrderModal();
+  }
+});
+
+// Enable/disable quantity input when checkbox changes
+document.querySelectorAll('#orderForm input[type="checkbox"]').forEach((checkbox, index) => {
+  checkbox.addEventListener("change", () => {
+    const qtyInput = document.querySelectorAll('#orderForm input[name="qty"]')[index];
+    qtyInput.disabled = !checkbox.checked;
+    if (!checkbox.checked) {
+      qtyInput.value = 1; // reset to default
+    }
+  });
+});
+
+// Send order to WhatsApp
+function sendOrder() {
+  const checkboxes = document.querySelectorAll('#orderForm input[name="menu"]:checked');
+  if (checkboxes.length === 0) {
+    alert("Please select at least one item before ordering.");
+    return;
+  }
+
+  let orderList = [];
+  checkboxes.forEach((cb, index) => {
+    const qtyInput = document.querySelectorAll('#orderForm input[name="qty"]')[index];
+    const qty = qtyInput.value;
+    orderList.push(`${cb.value} x ${qty}`);
+  });
+
+  // Registered WhatsApp number
+  const phoneNumber = "919374128747"; 
+  let message = `Hello Bapu no Rotlo,\nI would like to place a *Take Away* order:\n- ${orderList.join("\n- ")}`;
+
+  // ✅ Encode the message so WhatsApp receives the full text safely
+  const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+  window.open(whatsappURL, "_blank");
+  closeOrderModal();
+}
+</script>
+
+<script>
+
+// Language dictionary
     const translations = {
       en: {
         location: "Location",
