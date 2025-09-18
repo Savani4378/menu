@@ -96,6 +96,8 @@
 
   /* ================= OPTIONS BOX ================= */
   .options-box {
+    margin-top: 20;
+    margin-bottom: 20px;
     margin: 30px auto;
     padding: 20px;
     max-width: 700px;
