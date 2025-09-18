@@ -23,11 +23,10 @@
     flex-direction: column; /* Stack logo + language switch vertically */
     align-items: center;    /* Center horizontally */
     justify-content: center;
-    padding: 20px 0;
+    padding: 10px 0;
     text-align: center;
     background: linear-gradient(135deg, #f15a24, #f98c5c);
     color: #fff;
-    padding: 15px 0;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
@@ -37,7 +36,7 @@
      /* margin-bottom: 12px;*/
       height: 70px;
       background: #fff;
-      padding: 10px 20px;
+      padding: 5px 10px;
       border-radius: 12px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.15);
     }
@@ -105,14 +104,14 @@
     text-align: center;
     font-weight: bold;
     border-radius: 20px;
-    border: 2px solid #fff;
+    border: 2px solid #f15a24;
     text-decoration: none;
     transition: 0.3s;
   }
   .location-link:hover {
     background: transparent;
     color: #fff;
-    border-color: #fff;
+    border-color: #f15a24;
   }
 
   .header-row {
@@ -136,14 +135,34 @@
     text-decoration: none;
     font-weight: bold;
     border-radius: 20px;
-    border: 2px solid #fff;
+    border: 2px solid #f15a24;
     transition: all 0.3s ease;
     font-size: 0.95rem;
     white-space: nowrap;
   }
   .whatsapp-link:hover {
     background: #fff;
-    border-color: #fff;
+    border-color: #f15a24;
+  }
+
+  /* Google Review Button */
+  .review-link {
+    display: inline-block;
+    padding: 8px 18px;
+    background: #fff;
+    color: #f15a24;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 20px;
+    border: 2px solid #f15a24;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    white-space: nowrap;
+  }
+  .review-link:hover {
+    background: #fff;
+    border-color: #f15a24;
   }
 
   /* ================= OPTIONS BOX ================= */
